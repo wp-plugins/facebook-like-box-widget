@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Facebook Like Box
  * Version: 1.0
- * Plugin URI: http://vivociti.com/component/option,com_remository/Itemid,40/
+ * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
  * Author URI: http://vivociti.com/component/option,com_remository/Itemid,40/
@@ -29,14 +29,16 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$title = apply_filters('widget_title', empty($instance['title']) ? 'Twitter Signatures' : $instance['title']);
 		$pageID = empty($instance['pageID']) ? '123961057630124' : $instance['pageID'];
 		$connection = empty($instance['connection']) ? '10' : $instance['connection'];
+		$width = empty($instance['width']) ? '292' : $instance['width'];
+		$height = empty($instance['height']) ? '255' : $instance['height'];
 		$streams = empty($instance['streams']) ? 'yes' : $instance['streams'];
 		$header = empty($instance['header']) ? 'yes' : $instance['header'];
 		$creditOn = empty($instance['creditOn']) ? 'yes' : $instance['creditOn'];
 		$sharePlugin = "http://vivociti.com";
-		$height = 255;
+		
 		if ($streams == "yes") {
 			$streams == "true";
-			$height = 555;
+			$height = $height + 300;
 		} else {
 			$streams == "false";
 		}
@@ -76,6 +78,8 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$instance['title'] = strip_tags(stripslashes($new_instance['title']));
 		$instance['pageID'] = strip_tags(stripslashes($new_instance['pageID']));
 		$instance['connection'] = strip_tags(stripslashes($new_instance['connection']));
+		$instance['width'] = strip_tags(stripslashes($new_instance['width']));
+		$instance['height'] = strip_tags(stripslashes($new_instance['height']));
 		$instance['creditOn'] = strip_tags(stripslashes($new_instance['creditOn']));
 		$instance['header'] = strip_tags(stripslashes($new_instance['header']));
 		
@@ -88,11 +92,13 @@ class FacebookLikeBoxWidget extends WP_Widget
 	*/
 	function form($instance){
 		//Defaults
-		$instance = wp_parse_args( (array) $instance, array('title'=>'', 'pageID'=>'123961057630124', 'connection'=>'10', 'streams'=>'yes', 'header'=>'yes', 'creditOn'=>'yes') );
+		$instance = wp_parse_args( (array) $instance, array('title'=>'', 'pageID'=>'123961057630124', 'height'=>'255', 'width'=>'292', 'connection'=>'10', 'streams'=>'yes', 'header'=>'yes', 'creditOn'=>'yes') );
 		
 		$title = htmlspecialchars($instance['title']);
 		$pageID = empty($instance['pageID']) ? '123961057630124' : $instance['pageID'];
 		$connection = empty($instance['connection']) ? '10' : $instance['connection'];
+		$width = empty($instance['width']) ? '292' : $instance['width'];
+		$height = empty($instance['height']) ? '255' : $instance['height'];
 		$streams = empty($instance['streams']) ? 'yes' : $instance['streams'];
 		$header = empty($instance['header']) ? 'yes' : $instance['header'];
 		$creditOn = empty($instance['creditOn']) ? 'yes' : $instance['creditOn'];
@@ -110,6 +116,10 @@ class FacebookLikeBoxWidget extends WP_Widget
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('pageID') . '">' . __('Facebook Page ID:') . ' <input style="width: 150px;" id="' . $this->get_field_id('pageID') . '" name="' . $this->get_field_name('pageID') . '" type="text" value="' . $pageID . '" /></label></p>';
 		# Connection
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('connection') . '">' . __('Connections:') . ' <input style="width: 100px;" id="' . $this->get_field_id('connection') . '" name="' . $this->get_field_name('connection') . '" type="text" value="' . $connection . '" /></label></p>';
+		# Width
+		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('width') . '">' . __('Width:') . ' <input style="width: 100px;" id="' . $this->get_field_id('width') . '" name="' . $this->get_field_name('width') . '" type="text" value="' . $width . '" /></label></p>';
+		# Height
+		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('height') . '">' . __('Height:') . ' <input style="width: 100px;" id="' . $this->get_field_id('height') . '" name="' . $this->get_field_name('height') . '" type="text" value="' . $height . '" /></label></p>';		
 		# Fill Streams Selection
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('streams') . '">' . __('Streams:') . ' <select name="' . $this->get_field_name('streams')  . '" id="' . $this->get_field_id('streams')  . '">"';
 ?>

@@ -1,0 +1,38 @@
+=== Facebook Like Box Widget ===
+Contributors: sunwu2007
+Tags: facebook, facebook like, facebook badge, facebook button, facebook like button, fb like, like, badge, button, social network, seo, increase traffic
+Requires at least: 2.8.6
+Tested up to: 2.9
+Stable tag: trunk
+
+== Description ==
+Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
+
+== Installation ==
+
+* Download "facebook-like-box-widget.zip" to your computer.
+* Login as administrator
+* Click on Plugins --> Add New
+* On "Install Plugins" page, clik on "Upload" 
+* Browse and select "facebook-like-box-widget.zip" and click on "Install Now"
+* You can activate it now
+* Finally, add the widget to your sidebar through the 'Appearance > Widgets' menu
+* Go to your widget and adjust the settings
+
+or visit author website for Facebook Like Box tutorial.
+
+== Frequntly Asked Qustions ==
+If you have questions, please send to support[at]vivociti[dot]com or access our online forum directly
+
+== Screenshots ==
+
+1. Wordpress Admin Setting
+2. Wordpress Front Page Display (with streams)
+3. Wordpress Front Page Display (no streams)
+
+== Changelog ==
+
+= v1.0 05.25.2010 =
+initial release
+
+

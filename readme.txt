@@ -35,4 +35,7 @@ If you have questions, please send to support[at]vivociti[dot]com or access our 
 = v1.0 05.25.2010 =
 initial release
 
+= v1.1 06.11.2010 =
+minor fix to update stream setting
+
 

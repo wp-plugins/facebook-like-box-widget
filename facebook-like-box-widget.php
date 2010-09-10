@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 1.1
+ * Version: 1.2
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -26,7 +26,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 	*/
 	function widget($args, $instance){
 		extract($args);
-		$title = apply_filters('widget_title', empty($instance['title']) ? 'Twitter Signatures' : $instance['title']);
+		$title = apply_filters('widget_title', empty($instance['title']) ? 'Facebook Like Box' : $instance['title']);
 		$pageID = empty($instance['pageID']) ? '123961057630124' : $instance['pageID'];
 		$connection = empty($instance['connection']) ? '10' : $instance['connection'];
 		$width = empty($instance['width']) ? '292' : $instance['width'];

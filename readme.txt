@@ -38,4 +38,7 @@ initial release
 = v1.1 06.11.2010 =
 minor fix to update stream setting
 
+= v1.2 09.09.2010 =
+minor fix to title
+
 

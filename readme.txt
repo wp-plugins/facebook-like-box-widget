@@ -1,8 +1,8 @@
 === Facebook Like Box Widget ===
 Contributors: sunwu2007
-Tags: facebook, facebook like, facebook badge, facebook button, facebook like button, fb like, like, badge, button, social network, seo, increase traffic
+Tags: facebook, facebook like, facebook badge, facebook button, facebook like button, fb like, like, badge, button, social network, seo, increase traffic, BuddyPress
 Requires at least: 2.8.6
-Tested up to: 2.9
+Tested up to: 3.0
 Stable tag: trunk
 
 == Description ==

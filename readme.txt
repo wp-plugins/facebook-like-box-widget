@@ -41,4 +41,8 @@ minor fix to update stream setting
 = v1.2 09.09.2010 =
 minor fix to title
 
+= v1.5 02.10.2011 =
+Enhanced with Show Faces Option and Color Scheme Option
+
+
 

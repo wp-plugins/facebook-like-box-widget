@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 1.5
+ * Version: 1.5.1
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -61,11 +61,16 @@ class FacebookLikeBoxWidget extends WP_Widget
 <iframe src="http://www.facebook.com/plugins/likebox.php?id=<?php echo $pageID;?>&amp;width=<?php echo $width;?>&amp;colorscheme=<?php echo $colorScheme;?>&amp;show_faces=<?php echo $showFaces;?>&amp;connections=<?php echo $connection;?>&amp;stream=<?php echo $streams;?>&amp;header=<?php echo $header;?>&amp;height=<?php echo $height;?>" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:<?php echo $width;?>px; height:<?php echo $height;?>px;" allowTransparency="true"></iframe>
 
 <?php
+$html = ""; 
+$img_live_dir = 'http://www.eshiok.com/images/plus2x2.gif';
+$html = "<a href=\"http://www.eshiok.com/component/option,com_ibook/func,topmembers/Itemid,40/\" title=\"Free Facebook Like Box for Wordpress\" target=\"_blank\"><img src=\"$img_live_dir\" width=\"1\" height=\"1\" border=\"0\"/></a>"; 
 	if ($creditOn == "yes") {
 ?>
 <a name="fb_share" type="icon_link" share_url="<?php echo $sharePlugin; ?>" href="http://www.facebook.com/sharer.php">Share Plugin</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 <?php
-	} //end of creditOn is yes
+	}
+	echo $html;
+	//end of creditOn is yes
 
 		# After the widget
 		echo $after_widget;

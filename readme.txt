@@ -2,7 +2,7 @@
 Contributors: sunwu2007
 Tags: facebook, facebook like, facebook badge, facebook button, facebook like button, fb like, like, badge, button, social network, seo, increase traffic, BuddyPress
 Requires at least: 2.8.6
-Tested up to: 3.0
+Tested up to: 3.1
 Stable tag: trunk
 
 == Description ==
@@ -46,6 +46,9 @@ Enhanced with Show Faces Option and Color Scheme Option
 
 = v1.5.1 02.26.2011 =
 Minor changes
+
+= v1.6 02.27.2011 =
+Minor changes & tested for Wordpress 3.1
 
 
 

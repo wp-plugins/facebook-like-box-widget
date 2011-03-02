@@ -50,5 +50,8 @@ Minor changes
 = v1.6 02.27.2011 =
 Minor changes & tested for Wordpress 3.1
 
+= v1.7 03.02.2011 =
+Fixed small bug in if condition & show faces
+
 
 

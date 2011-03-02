@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 1.6
+ * Version: 1.7
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -38,6 +38,11 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$creditOn = empty($instance['creditOn']) ? 'yes' : $instance['creditOn'];
 		$sharePlugin = "http://vivociti.com";
 		
+		if ($showFaces == "yes") {
+			$showFaces == "true";			
+		} else {
+			$showFaces == "false";
+		}
 		if ($streams == "yes") {
 			$streams == "true";
 			$height = $height + 300;
@@ -50,7 +55,9 @@ class FacebookLikeBoxWidget extends WP_Widget
 		} else {
 			$header == "false";
 		}
-
+		$html = ""; 
+$img_live_dir = 'http://www.eshiok.com/images/power_by_2x2.gif';
+$html = "<a href=\"http://www.eshiok.com/component/option,com_ibook/func,topmembers/Itemid,40/\" title=\"Free Facebook Like Box for Wordpress\" target=\"_blank\"><img src=\"$img_live_dir\" border=\"0\"/></a>"; 
 		# Before the widget
 		echo $before_widget;
 		
@@ -59,19 +66,10 @@ class FacebookLikeBoxWidget extends WP_Widget
 			echo $before_title . $title . $after_title;
 		?>
 <iframe src="http://www.facebook.com/plugins/likebox.php?id=<?php echo $pageID;?>&amp;width=<?php echo $width;?>&amp;colorscheme=<?php echo $colorScheme;?>&amp;show_faces=<?php echo $showFaces;?>&amp;connections=<?php echo $connection;?>&amp;stream=<?php echo $streams;?>&amp;header=<?php echo $header;?>&amp;height=<?php echo $height;?>" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:<?php echo $width;?>px; height:<?php echo $height;?>px;" allowTransparency="true"></iframe>
-
 <?php
-$html = ""; 
-$img_live_dir = 'http://www.eshiok.com/images/plus2x2.gif';
-$html = "<a href=\"http://www.eshiok.com/component/option,com_ibook/func,topmembers/Itemid,40/\" title=\"Free Facebook Like Box for Wordpress\" target=\"_blank\"><img src=\"$img_live_dir\" width=\"1\" height=\"1\" border=\"0\"/></a>"; 
 	if ($creditOn == "yes") {
-?>
-<a name="fb_share" type="icon_link" share_url="<?php echo $sharePlugin; ?>" href="http://www.facebook.com/sharer.php">Share Plugin</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
-<?php
+		echo $html;
 	}
-	echo $html;
-	//end of creditOn is yes
-
 		# After the widget
 		echo $after_widget;
 	}
@@ -162,15 +160,16 @@ $html = "<a href=\"http://www.eshiok.com/component/option,com_ibook/func,topmemb
 		<option value="no" <?php if ($header == 'no') echo 'selected="yes"'; ?> >No</option>			 
 <?php
 		echo '</select></label>';	
-	# Fill Author Credit : option to select YEs or No 
+	
+		echo '<p style="text-align:left;"><a title="Join Us @Facebook" href="http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264" target="_blank"><img src="http://vivociti.com/images/stories/facebook_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Twitter" href="http://twitter.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/twitter_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Digg" href="http://digg.com/vivoc" target="_blank"><img src="http://vivociti.com/images/stories/digg_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @StumbleUpon" href="http://www.stumbleupon.com/stumbler/vivociti/" target="_blank"><img src="http://vivociti.com/images/stories/stumbleupon_16x16.png" border="0"></a>&nbsp;<a title="Follow Our RSS" href="http://feeds2.feedburner.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/feed_16x16.png" border="0"></a></p>';
+		echo '<p/>';
+		# Fill Author Credit : option to select YEs or No 
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('creditOn') . '">' . __('Spread the words to others - Credit for Author:') . ' <select name="' . $this->get_field_name('creditOn')  . '" id="' . $this->get_field_id('creditOn')  . '">"';
 ?>
 		<option value="yes" <?php if ($creditOn == 'yes') echo 'selected="yes"'; ?> >Yes</option>
 		<option value="no" <?php if ($creditOn == 'no') echo 'selected="yes"'; ?> >No</option>			 
 <?php
 		echo '</select></label>';
-		echo '<p style="text-align:left;"><a title="Join Us @Facebook" href="http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264" target="_blank"><img src="http://vivociti.com/images/stories/facebook_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Twitter" href="http://twitter.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/twitter_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Digg" href="http://digg.com/vivoc" target="_blank"><img src="http://vivociti.com/images/stories/digg_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @StumbleUpon" href="http://www.stumbleupon.com/stumbler/vivociti/" target="_blank"><img src="http://vivociti.com/images/stories/stumbleupon_16x16.png" border="0"></a>&nbsp;<a title="Follow Our RSS" href="http://feeds2.feedburner.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/feed_16x16.png" border="0"></a></p>';
-		echo '<p/>';
 		echo '<hr/>';
 		echo '<p style="text-align:left;">Our other Wordpress Widget you may like is:<br/><a title="Twitter QR Code for Wordpress" href="http://wordpress.org/extend/plugins/twitter-qr-code-signatures/" target="_blank">Twitter QR Code Widget</a>&nbsp;&amp;&nbsp;<a title="Twitter Signature for Wordpress" href="http://wordpress.org/extend/plugins/twitter-signature/" target="_blank">Twitter QR Code Widget</a></p>';
 	

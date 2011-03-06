@@ -6,7 +6,7 @@ Tested up to: 3.1
 Stable tag: trunk
 
 == Description ==
-Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
+Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes & Recommendation Comments from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
 
 == Installation ==
 
@@ -52,6 +52,9 @@ Minor changes & tested for Wordpress 3.1
 
 = v1.7 03.02.2011 =
 Fixed small bug in if condition & show faces
+
+= v1.8 03.06.2011 =
+Major fixes for showing faces and streams & enhancement to include Facebook Like and Recommend Button, and to support XFBML rendering
 
 
 

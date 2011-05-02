@@ -56,5 +56,9 @@ Fixed small bug in if condition & show faces
 = v1.8 03.06.2011 =
 Major fixes for showing faces and streams & enhancement to include Facebook Like and Recommend Button, and to support XFBML rendering
 
+= v1.9 05.02.2011 =
+Minor enhancement for administration page
+
+
 
 

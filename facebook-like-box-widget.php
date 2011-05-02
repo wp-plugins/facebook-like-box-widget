@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 1.8
+ * Version: 1.9
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -93,8 +93,8 @@ class FacebookLikeBoxWidget extends WP_Widget
 		}
 		$like_button_xfbml  = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like layout=\"$fblike_button_style\" show_faces=\"$fblike_button_showFaces\" width=\"$fblike_button_width\" action=\"$fblike_button_verb_to_display\" font=\"$fblike_button_font\" colorscheme=\"$fblike_button_colorScheme\"></fb:like>";
 		$html = ""; 
-		$img_live_dir = 'http://www.eshiok.com/images/power_by_2x2.gif';
-		$html = "<a href=\"http://www.eshiok.com/component/option,com_ibook/func,topmembers/Itemid,40/\" title=\"Free Facebook Like Box for Wordpress\" target=\"_blank\"><img src=\"$img_live_dir\" border=\"0\"/></a>"; 
+		$img_live_dir = 'http://www.cmsvoteup.com/images/power_by_2x2.gif';
+		$html = "<a href=\"http://cmsvoteup.com/joomla-extensions/facebook-like-box-like-recommendation-for-joomla-wordpress/\" title=\"Free Facebook Like Box for Wordpress\" target=\"_blank\"><img src=\"$img_live_dir\" border=\"0\"/></a>"; 
 
 		switch ($pluginDisplayType) {
 			case 'like_box' :
@@ -315,10 +315,10 @@ class FacebookLikeBoxWidget extends WP_Widget
 		echo '<p/>';
 		echo '<hr/>';
 		# Fill Author Credit : option to select YEs or No 
-		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('creditOn') . '">' . __('Spread the words to others with small link - credit to Author:') . ' <select name="' . $this->get_field_name('creditOn')  . '" id="' . $this->get_field_id('creditOn')  . '">"';
+		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('creditOn') . '">' . __('Support Our Development by contributing money via PayPal at http://bit.ly/9Njzpo - No (Credit Author by small link)') . ' <select name="' . $this->get_field_name('creditOn')  . '" id="' . $this->get_field_id('creditOn')  . '">"';
 ?>
-		<option value="yes" <?php if ($creditOn == 'yes') echo 'selected="yes"'; ?> >Yes</option>
-		<option value="no" <?php if ($creditOn == 'no') echo 'selected="yes"'; ?> >No</option>			 
+		<option value="no" <?php if ($creditOn == 'no') echo 'selected="yes"'; ?> >Yes</option>
+		<option value="yes" <?php if ($creditOn == 'yes') echo 'selected="yes"'; ?> >No</option>			 
 <?php
 		echo '</select></label>';
 		echo '<p style="text-align:left;">Our other Wordpress Widget you may like is:<br/><a title="Twitter QR Code for Wordpress" href="http://wordpress.org/extend/plugins/twitter-qr-code-signatures/" target="_blank">Twitter QR Code Widget</a>&nbsp;&amp;&nbsp;<a title="Twitter Signature for Wordpress" href="http://wordpress.org/extend/plugins/twitter-signature/" target="_blank">Twitter QR Code Widget</a></p>';

@@ -8,6 +8,8 @@ Stable tag: trunk
 == Description ==
 Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes & Recommendation Comments from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
 
+[Vote Our Plugin](http://cmsvoteup.com/joomla-extensions/facebook-like-box-like-recommendation-for-joomla-wordpress/)
+
 == Installation ==
 
 * Download "facebook-like-box-widget.zip" to your computer.
@@ -22,7 +24,7 @@ Facebook Like Box Widget is a social plugin that enables Facebook Page owners to
 or visit author website for Facebook Like Box tutorial.
 
 == Frequntly Asked Qustions ==
-If you have questions, please send to support[at]vivociti[dot]com or access our online forum directly
+[Visit](http://vivociti.com/)
 
 == Screenshots ==
 

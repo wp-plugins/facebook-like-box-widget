@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 1.9
+ * Version: 2.0
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -321,7 +321,12 @@ class FacebookLikeBoxWidget extends WP_Widget
 		<option value="yes" <?php if ($creditOn == 'yes') echo 'selected="yes"'; ?> >No</option>			 
 <?php
 		echo '</select></label>';
-		echo '<p style="text-align:left;">Our other Wordpress Widget you may like is:<br/><a title="Twitter QR Code for Wordpress" href="http://wordpress.org/extend/plugins/twitter-qr-code-signatures/" target="_blank">Twitter QR Code Widget</a>&nbsp;&amp;&nbsp;<a title="Twitter Signature for Wordpress" href="http://wordpress.org/extend/plugins/twitter-signature/" target="_blank">Twitter QR Code Widget</a></p>';
+		echo '<p style="text-align:left;">Our other Wordpress Widget you may like is:<br/>
+		<ul>
+		  <li><a title="Google +1 Button" href="http://wordpress.org/extend/plugins/google-1-recommend-button-for-wordpress/" target="_blank">Google +1 Button</a></li>
+		  <li><a title="Twitter QR Code for Wordpress" href="http://wordpress.org/extend/plugins/twitter-qr-code-signatures/" target="_blank">Twitter QR Code Widget</a></li>
+		  <li><a title="Twitter Signature for Wordpress" href="http://wordpress.org/extend/plugins/twitter-signature/" target="_blank">Twitter Signature for Wordpress</a></li>
+		</ul></p>';
 		
 	
 	} //end of form

@@ -61,6 +61,9 @@ Major fixes for showing faces and streams & enhancement to include Facebook Like
 = v1.9 05.02.2011 =
 Minor enhancement for administration page
 
+= v2.0 06.04.2011 =
+Minor enhancement
+
 
 
 

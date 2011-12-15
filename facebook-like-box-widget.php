@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 2.1
+ * Version: 2.2
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -38,6 +38,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$fblike_button_font = empty($instance['fblike_button_font']) ? 'lucida grande' : $instance['fblike_button_font'];
 		$fblike_button_width = empty($instance['fblike_button_width']) ? '292' : $instance['fblike_button_width'];
 		$fblike_button_colorScheme = empty($instance['fblike_button_colorScheme']) ? 'light' : $instance['fblike_button_colorScheme'];
+		
 		//example of Page ID : 123961057630124
 		$pageID = empty($instance['pageID']) ? '' : $instance['pageID'];
 		$connection = empty($instance['connection']) ? '10' : $instance['connection'];
@@ -45,6 +46,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$height = empty($instance['height']) ? '255' : $instance['height'];
 		$streams = empty($instance['streams']) ? 'yes' : $instance['streams'];
 		$colorScheme = empty($instance['colorScheme']) ? 'light' : $instance['colorScheme'];
+		$borderColor = empty($instance['borderColor']) ? 'AAAAAA' : $instance['borderColor'];
 		$showFaces = empty($instance['showFaces']) ? 'yes' : $instance['showFaces'];
 		$header = empty($instance['header']) ? 'yes' : $instance['header'];
 		$creditOn = empty($instance['creditOn']) ? 'yes' : $instance['creditOn'];
@@ -85,11 +87,11 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$isUsingPageURL = false;
 		if (strlen($pageURL) > 23) {	
 			$isUsingPageURL = true;  //flag to be used for backward
-			$like_box_iframe = "<iframe src=\"http://www.facebook.com/plugins/likebox.php?href=$pageURL&amp;width=$width&amp;colorscheme=$colorScheme&amp;show_faces=$showFaces&amp;connections=$connection&amp;stream=$streams&amp;header=$header&amp;height=$height\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:" . $width . "px; height:" . $height . "px;\" allowTransparency=\"true\"></iframe>";
-			$like_box_xfbml = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like-box href=\"$pageURL\" width=\"$width\" show_faces=\"$showFaces\" stream=\"$streams\" header=\"$header\"></fb:like-box>";
+			$like_box_iframe = "<iframe src=\"http://www.facebook.com/plugins/likebox.php?href=$pageURL&amp;width=$width&amp;colorscheme=$colorScheme&amp;border_color=$borderColor&amp;show_faces=$showFaces&amp;connections=$connection&amp;stream=$streams&amp;header=$header&amp;height=$height\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:" . $width . "px; height:" . $height . "px;\" allowTransparency=\"true\"></iframe>";
+			$like_box_xfbml = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like-box href=\"$pageURL\" width=\"$width\" show_faces=\"$showFaces\" border_color=\"$borderColor\" stream=\"$streams\" header=\"$header\"></fb:like-box>";
 		} else {
-			$like_box_iframe = "<iframe src=\"http://www.facebook.com/plugins/likebox.php?id=$pageID&amp;width=$width&amp;colorscheme=$colorScheme&amp;show_faces=$showFaces&amp;connections=$connection&amp;stream=$streams&amp;header=$header&amp;height=$height\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:" . $width . "px; height:" . $height . "px;\" allowTransparency=\"true\"></iframe>";
-			$like_box_xfbml = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like-box id=\"$pageID\" width=\"$width\" show_faces=\"$showFaces\" stream=\"$streams\" header=\"$header\"></fb:like-box>";		
+			$like_box_iframe = "<iframe src=\"http://www.facebook.com/plugins/likebox.php?id=$pageID&amp;width=$width&amp;colorscheme=$colorScheme&amp;border_color=$borderColor&amp;show_faces=$showFaces&amp;connections=$connection&amp;stream=$streams&amp;header=$header&amp;height=$height\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:" . $width . "px; height:" . $height . "px;\" allowTransparency=\"true\"></iframe>";
+			$like_box_xfbml = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like-box id=\"$pageID\" width=\"$width\" show_faces=\"$showFaces\" border_color=\"$borderColor\" stream=\"$streams\" header=\"$header\"></fb:like-box>";		
 		}
 		$like_button_xfbml  = "<script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:like layout=\"$fblike_button_style\" show_faces=\"$fblike_button_showFaces\" width=\"$fblike_button_width\" action=\"$fblike_button_verb_to_display\" font=\"$fblike_button_font\" colorscheme=\"$fblike_button_colorScheme\"></fb:like>";
 		$html = ""; 
@@ -143,6 +145,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$instance['header'] = strip_tags(stripslashes($new_instance['header']));
 		$instance['streams'] = strip_tags(stripslashes($new_instance['streams']));   //thanks to : Krzysztof Piech <chrisx29a@gmail.com>
 		$instance['colorScheme'] = strip_tags(stripslashes($new_instance['colorScheme']));
+		$instance['borderColor'] = strip_tags(stripslashes($new_instance['borderColor']));
 		$instance['showFaces'] = strip_tags(stripslashes($new_instance['showFaces']));
 		
 		$instance['pluginDisplayType'] = strip_tags(stripslashes($new_instance['pluginDisplayType']));
@@ -164,7 +167,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 	*/
 	function form($instance){
 		//Defaults
-		$instance = wp_parse_args( (array) $instance, array('title'=>'', 'pageID'=>'119691288064264', 'height'=>'255', 'width'=>'292', 'connection'=>'10', 'streams'=>'yes', 'colorScheme'=>'light', 'showFaces'=>'yes', 'header'=>'yes', 'creditOn'=>'yes', 'pluginDisplayType'=>'like_box', 'layoutMode'=>'iframe', 'pageURL'=>'http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264', 'fblike_button_style'=>'standard', 'fblike_button_showFaces'=>'false','fblike_button_verb_to_display'=>'recommend','fblike_button_font'=>'arial', 'fblike_button_width'=>'292','fblike_button_colorScheme'=>'light') );
+		$instance = wp_parse_args( (array) $instance, array('title'=>'', 'pageID'=>'119691288064264', 'height'=>'255', 'width'=>'292', 'connection'=>'10', 'streams'=>'yes', 'colorScheme'=>'light', 'showFaces'=>'yes', 'borderColor'=>'AAAAAA','header'=>'yes', 'creditOn'=>'yes', 'pluginDisplayType'=>'like_box', 'layoutMode'=>'iframe', 'pageURL'=>'http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264', 'fblike_button_style'=>'standard', 'fblike_button_showFaces'=>'false','fblike_button_verb_to_display'=>'recommend','fblike_button_font'=>'arial', 'fblike_button_width'=>'292','fblike_button_colorScheme'=>'light') );
 		
 		
 		$title = htmlspecialchars($instance['title']);		
@@ -183,6 +186,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$height = empty($instance['height']) ? '255' : $instance['height'];
 		$streams = empty($instance['streams']) ? 'yes' : $instance['streams'];
 		$colorScheme = empty($instance['colorScheme']) ? 'yes' : $instance['colorScheme'];
+		$borderColor = empty($instance['borderColor']) ? 'AAAAAA' : $instance['borderColor'];
 		$showFaces = empty($instance['showFaces']) ? 'yes' : $instance['showFaces'];
 		$header = empty($instance['header']) ? 'yes' : $instance['header'];
 		$creditOn = empty($instance['creditOn']) ? 'yes' : $instance['creditOn'];
@@ -192,6 +196,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		$connection = htmlspecialchars($instance['connection']);
 		$streams = htmlspecialchars($instance['streams']);
 		$colorScheme = htmlspecialchars($instance['colorScheme']);
+		$borderColor = htmlspecialchars($instance['borderColor']);
 		$showFaces = htmlspecialchars($instance['showFaces']);
 		$header = htmlspecialchars($instance['header']);
 		$creditOn = htmlspecialchars($instance['creditOn']);
@@ -252,6 +257,8 @@ class FacebookLikeBoxWidget extends WP_Widget
 		<option value="dark" <?php if ($colorScheme == 'dark') echo 'selected="yes"'; ?> >Dark</option>			 
 <?php
 		echo '</select></label>';
+		# Border Color
+		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('borderColor') . '">' . __('Border Color:') . ' <input style="width: 100px;" id="' . $this->get_field_id('borderColor') . '" name="' . $this->get_field_name('borderColor') . '" type="text" value="' . $borderColor . '" /></label></p>';
 # Fill Show Faces Selection
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('showFaces') . '">' . __('Show Faces:') . ' <select name="' . $this->get_field_name('showFaces')  . '" id="' . $this->get_field_id('showFaces')  . '">"';
 ?>
@@ -311,7 +318,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		echo '</select></label>';
 		
 		
-		echo '<p style="text-align:left;"><a title="Join Us @Facebook" href="http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264" target="_blank"><img src="http://vivociti.com/images/stories/facebook_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Twitter" href="http://twitter.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/twitter_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Digg" href="http://digg.com/vivoc" target="_blank"><img src="http://vivociti.com/images/stories/digg_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @StumbleUpon" href="http://www.stumbleupon.com/stumbler/vivociti/" target="_blank"><img src="http://vivociti.com/images/stories/stumbleupon_16x16.png" border="0"></a>&nbsp;<a title="Follow Our RSS" href="http://feeds2.feedburner.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/feed_16x16.png" border="0"></a></p>';
+		echo '<p style="text-align:left;"><a title="Join Us @Facebook" href="http://www.facebook.com/pages/VivoCiticom-Joomla-Wordpress-Blogger-Drupal-DNN-Community/119691288064264" target="_blank"><img src="http://vivociti.com/images/stories/facebook_16x16.png" border="0"></a>&nbsp;<a href="https://plus.google.com/100723813888588053339?prsrc=3" style="text-decoration:none;"><img src="https://ssl.gstatic.com/images/icons/gplus-16.png" alt="" style="border:0;width:16px;height:16px;"/></a>&nbsp;<a title="Follow Us @Twitter" href="http://twitter.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/twitter_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @Digg" href="http://digg.com/vivoc" target="_blank"><img src="http://vivociti.com/images/stories/digg_16x16.png" border="0"></a>&nbsp;<a title="Follow Us @StumbleUpon" href="http://www.stumbleupon.com/stumbler/vivociti/" target="_blank"><img src="http://vivociti.com/images/stories/stumbleupon_16x16.png" border="0"></a>&nbsp;<a title="Follow Our RSS" href="http://feeds2.feedburner.com/vivociti" target="_blank"><img src="http://vivociti.com/images/stories/feed_16x16.png" border="0"></a></p>';
 		echo '<p/>';
 		echo '<hr/>';
 		# Fill Author Credit : option to select YEs or No 

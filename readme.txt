@@ -67,5 +67,8 @@ Minor enhancement
 = v2.1 08.15.2011 =
 Tested with Wordpress 3.2.1
 
+= v2.2 12.15.2011 =
+Support with Border Color following Facebook Developer update
+
 
 

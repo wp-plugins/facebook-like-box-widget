@@ -26,7 +26,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 	*/
 	function widget($args, $instance){
 		extract($args);
-		$title = apply_filters('widget_title', empty($instance['title']) ? 'Facebook Like Box' : $instance['title']);
+		$title = apply_filters('widget_title', empty($instance['title']) ? '' : $instance['title']);
 		
 		$pluginDisplayType = empty($instance['pluginDisplayType']) ? 'like_box' : $instance['pluginDisplayType'];
 		$layoutMode = empty($instance['layoutMode']) ? 'xfbml' : $instance['layoutMode'];

@@ -74,7 +74,9 @@ Support with Border Color following Facebook Developer update
 Removed support for iFrame per Wordpress Team feedback
 
 = v2.4 08.05.2012 =
-Now you can enable additional social network buttons such as Pinterest, Twitter, Google+ and it is floating on the left side (default is set to No).
+* Now you can enable additional social network buttons such as Pinterest, Twitter, Google+ and it is floating on the left side (default is set to No).
+* Leave Title field blank will not show default title anymore
+
 
 
 

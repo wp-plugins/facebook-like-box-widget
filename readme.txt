@@ -77,6 +77,10 @@ Removed support for iFrame per Wordpress Team feedback
 * Now you can enable additional social network buttons such as Pinterest, Twitter, Google+ and it is floating on the left side (default is set to No).
 * Leave Title field blank will not show default title anymore
 
+= v2.5 09.05.2013 =
+* Tested on Wordpress 3.5.2
+
+
 
 
 

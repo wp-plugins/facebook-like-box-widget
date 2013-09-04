@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Facebook Like Box
- * Version: 2.4
+ * Version: 2.5
  * Plugin URI: http://wordpress.org/extend/plugins/facebook-like-box-widget/
  * Description: Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes from their own website. The Like Box enables users to: see how many users already like this page, and which of their friends like it too, read recent posts from the page and Like the page with one click, without needing to visit the page.
  * Author: Sunento Agustiar Wu
@@ -387,7 +387,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('addThisVerticalStyle') . '">' . __('Choose Vertical Floating Style:') . ' <select name="' . $this->get_field_name('addThisVerticalStyle')  . '" id="' . $this->get_field_id('addThisVerticalStyle')  . '">"';
 ?>
 		<option value="1" <?php if ($enableOtherSocialButtons == '1') echo 'selected="yes"'; ?> >1 - Floating On The Left</option>
-		<option value="2" <?php if ($enableOtherSocialButtons == '2') echo 'selected="yes"'; ?> >2- Floating On The Left</option>				
+		<option value="2" <?php if ($enableOtherSocialButtons == '2') echo 'selected="yes"'; ?> >2- Floating On The Right</option>				
 		<option value="3" <?php if ($enableOtherSocialButtons == '3') echo 'selected="yes"'; ?> >3 - Floating On The Left</option>				
 <?php
 		echo '</select></label>';
@@ -399,7 +399,7 @@ class FacebookLikeBoxWidget extends WP_Widget
 		echo '<p/>';
 		echo '<hr/>';
 		# Fill Author Credit : option to select YEs or No 
-		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('creditOn') . '">' . __('Select Yes to support Development by contributing money via PayPal at http://bit.ly/9Njzpo Or Dont Show Credit - Select No to credit Author by small link back to author website.') . ' <select name="' . $this->get_field_name('creditOn')  . '" id="' . $this->get_field_id('creditOn')  . '">"';
+		echo '<p style="text-align:right;"><label for="' . $this->get_field_name('creditOn') . '">' . __('Select Yes to support Development by contributing money via PayPal at <a href="http://bit.ly/9Njzpo" target="_blank"> http://bit.ly/9Njzpo</a></br>OR</br>Select NO to not contributing money via PayPal (<b>There is Small Link back to author website</b>)') . ' <select name="' . $this->get_field_name('creditOn')  . '" id="' . $this->get_field_id('creditOn')  . '">"';
 ?>
 		<option value="no" <?php if ($creditOn == 'no') echo 'selected="yes"'; ?> >Yes</option>
 		<option value="yes" <?php if ($creditOn == 'yes') echo 'selected="yes"'; ?> >No</option>			 

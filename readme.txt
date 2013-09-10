@@ -1,8 +1,9 @@
 === Facebook Like Box Widget ===
 Contributors: sunwu2007
+Donate link: http://bit.ly/9Njzpo
 Tags: facebook, facebook like, facebook badge, facebook button, facebook like button, fb like, facebook like box, badge, social network, seo, increase traffic, BuddyPress
 Requires at least: 2.8.6
-Tested up to: 3.4.1
+Tested up to: 3.5.2
 Stable tag: trunk
 
 == Description ==
@@ -79,6 +80,12 @@ Removed support for iFrame per Wordpress Team feedback
 
 = v2.5 09.05.2013 =
 * Tested on Wordpress 3.5.2
+
+= v2.6 09.10.2013 =
+* Remove minor option from Setting per Wordpress Plugin Team feedback
+
+
+
 
 
 
